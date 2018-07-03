@@ -1,0 +1,43 @@
+(go (let [pfad (str "{\"path\":\"/" "log.txt" "\"}")
+          response (<! (http/post "https://content.dropboxapi.com/2/files/download" 
+                                  {:with-credentials? false
+                                   :headers {"Authorization" "Bearer QfCCKhxI-HwAAAAAAAAGe4i9DNbnHKnffOh6gCeyFIKFvRqMbS7IW1JQzyb8XVNp"
+                                             "Dropbox-API-Arg" pfad
+                                             "Content-Type" "text/plain; charset=utf-8"}         
+                                   }
+                                  ))] 
+      (prn (:status response))
+      (prn (:body response))))
+    (reset! fil (:body response))))
+
+
+(go (let [f-name "x.txt"
+          pfad (str "{\"path\":\"/" f-name \" "," "\"mode\":{\".tag\":\"overwrite\"}}")]
+      (js/console.log (<! (http/post "https://content.dropboxapi.com/2/files/upload" 
+                                     {:with-credentials? false
+                                      :headers {"Authorization" "Bearer QfCCKhxI-HwAAAAAAAAGe4i9DNbnHKnffOh6gCeyFIKFvRqMbS7IW1JQzyb8XVNp"
+                                                "Dropbox-API-Arg" pfad 
+                                                "Content-Type" "application/octet-stream"
+                                                }        
+                                      :body "Hallo Welt"} 
+                                     )))))
+
+(go (let [response (<! (http/post "https://api.dropboxapi.com/2/files/list_folder"
+                                  {:with-credentials? false
+                                   :headers {"Authorization" "Bearer QfCCKhxI-HwAAAAAAAAGe4i9DNbnHKnffOh6gCeyFIKFvRqMbS7IW1JQzyb8XVNp"
+                                             }
+                                   :json-params {:path ""}
+                                   }))]
+      (println (:status response))))
+    (println (:body response))))
+
+
+;; oldFileNamed: aString
+;; | client |
+;; client := ZnClient new.
+;; client https; host: 'content.dropboxapi.com';
+;; addPath: '2'; addPath: 'files'; addPath: 'download';
+;; headerAt: 'Authorization' put: 
+;; 'Bearer QfCCKhxI-HwAAAAAAAAGe4i9DNbnHKnffOh6gCeyFIKFvRqMbS7IW1JQzyb8XVNp';
+;; headerAt: 'Dropbox-API-Arg' put: '{"path": "/' , aString, '"}' ;get.
+
