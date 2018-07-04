@@ -26,4 +26,4 @@ canastcljs.spieler.zwischen_summe = (function canastcljs$spieler$zwischen_summe(
 return cljs.core.reduce.call(null,cljs.core._PLUS_,cljs.core.take.call(null,runde,new cljs.core.Keyword(null,"resultate","resultate",-649999987).cljs$core$IFn$_invoke$arity$1(s)));
 });
 
-//# sourceMappingURL=spieler.js.map?rel=1530621490881
+//# sourceMappingURL=spieler.js.map?rel=1530696299692

@@ -3,7 +3,6 @@
   (:require [reagent.core :as r]
             [cljs-http.client :as http]
             [cljs.core.async :as a :refer [<!]]
-            [reagent-modals.modals :as reagent-modals]
             [canastcljs.spiel :as sp]
             [canastcljs.menu :as me]
             [canastcljs.drop-file-stream :as df]))
@@ -27,16 +26,12 @@
 
 ;; -------------------------
 ;; Events
-(defn neues-spiel []
-  (if (:gespeichertes-spiel? @world) 
-    (reagent-modals/modal! [:div "Es gibt ein begonnenes Spiel"]
-                           {:size :sm
-                            })
-    (let [spiel (sp/neues-spiel)
-          log (df/log-neues-spiel "logs.txt" world :log)] 
-      (swap! world assoc
-             :spiel spiel
-             :korrektur false))))
+(defn neues-spiel [] 
+  (let [spiel (sp/neues-spiel)
+        log (df/log-neues-spiel "logs.txt" world :log)] 
+    (swap! world assoc
+           :spiel spiel
+           :korrektur false)))
 
 (defn begonnenes-spiel-verwerfen []  
   (let [spiel (sp/neues-spiel)
@@ -232,17 +227,19 @@
       (when (sp/geber-festgelegt? (:spiel @world)) (ergebnis-tabelle))]
      (geber-feststellung)]))
 
-(def MENU
-  {:neues-spiel #(neues-spiel)
-   :begonnenes-ignorieren #(begonnenes-spiel-verwerfen)
-   :restauriere-spiel #(restauriere-spiel)})
-
+(defn menu
+  []
+  (if (:gespeichertes-spiel? @world)
+    {:begonnenes-ignorieren #(begonnenes-spiel-verwerfen)
+     :restauriere-spiel #(restauriere-spiel)}
+    {:neues-spiel #(neues-spiel) 
+     :restauriere-spiel #(restauriere-spiel)}))
+  
 (defn home-page []
   [:div
-   (me/menu MENU)
+   (me/menu (menu))
    [:h1 "Canasta"] 
-   (render-spielablauf)
-   [reagent-modals/modal-window]])
+   (render-spielablauf)])
 
 ;; -------------------------
 ;; Initialize app
