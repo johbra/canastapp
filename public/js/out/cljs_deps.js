@@ -41,8 +41,7 @@ goog.addDependency("../reagent/impl/template.js", ['reagent.impl.template'], ['r
 goog.addDependency("../cljsjs/react-dom/development/react-dom.inc.js", ['react_dom', 'cljsjs.react.dom'], ['react'], {'foreign-lib': true});
 goog.addDependency("../reagent/dom.js", ['reagent.dom'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.debug', 'react_dom']);
 goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'react', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug', 'reagent.dom']);
-goog.addDependency("../reagent_modals/modals.js", ['reagent_modals.modals'], ['goog.dom', 'reagent.core', 'cljs.core', 'goog.events.EventType', 'goog.events']);
-goog.addDependency("../canastcljs/menu.js", ['canastcljs.menu'], ['reagent_modals.modals', 'reagent.core', 'cljs.core']);
+goog.addDependency("../canastcljs/menu.js", ['canastcljs.menu'], ['reagent.core', 'cljs.core']);
 goog.addDependency("../no/en/core.js", ['no.en.core'], ['cljs.core', 'goog.crypt.base64', 'clojure.string', 'cljs.reader']);
 goog.addDependency("../com/cognitect/transit/util.js", ['com.cognitect.transit.util'], ['goog.object']);
 goog.addDependency("../com/cognitect/transit/eq.js", ['com.cognitect.transit.eq'], ['com.cognitect.transit.util']);
@@ -61,7 +60,7 @@ goog.addDependency("../cljs_http/client.js", ['cljs_http.client'], ['cljs_http.c
 goog.addDependency("../canastcljs/drop_file_stream.js", ['canastcljs.drop_file_stream'], ['cljs.core', 'cljs_http.client', 'cljs.core.async']);
 goog.addDependency("../canastcljs/spieler.js", ['canastcljs.spieler'], ['cljs.core']);
 goog.addDependency("../canastcljs/spiel.js", ['canastcljs.spiel'], ['canastcljs.spieler', 'canastcljs.drop_file_stream', 'cljs.core']);
-goog.addDependency("../canastcljs/core.js", ['canastcljs.core'], ['reagent_modals.modals', 'canastcljs.menu', 'canastcljs.drop_file_stream', 'reagent.core', 'canastcljs.spiel', 'cljs.core', 'cljs_http.client', 'cljs.core.async']);
+goog.addDependency("../canastcljs/core.js", ['canastcljs.core'], ['canastcljs.menu', 'canastcljs.drop_file_stream', 'reagent.core', 'canastcljs.spiel', 'cljs.core', 'cljs_http.client', 'cljs.core.async']);
 goog.addDependency("../devtools/protocols.js", ['devtools.protocols'], ['cljs.core']);
 goog.addDependency("../devtools/context.js", ['devtools.context'], ['cljs.core']);
 goog.addDependency("../devtools/format.js", ['devtools.format'], ['cljs.core', 'devtools.context']);

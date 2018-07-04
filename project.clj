@@ -8,8 +8,7 @@
                  [org.clojure/clojurescript "1.10.238"]
                  [json-html "0.4.4"]
                  [reagent "0.8.1"]
-                 [cljs-http "0.1.45"]
-                 [org.clojars.frozenlock/reagent-modals "0.2.8"]]
+                 [cljs-http "0.1.45"]]
 
   :plugins [[lein-cljsbuild "1.1.5"]
             [lein-figwheel "0.5.16"]
