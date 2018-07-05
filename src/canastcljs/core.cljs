@@ -18,7 +18,7 @@
   []
   (swap! world assoc :korrektur false))
 
-(println @world)
+;; (println @world)
 
 ;; 
 ;; -------------------------

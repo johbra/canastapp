@@ -68,7 +68,7 @@
 
 (defn teilnehmer-namen
   [spiel]
-  (map s/spieler-name (:teilnehmer spiel)))
+  (sort > (map s/spieler-name (:teilnehmer spiel))))
 
 (defn restauriere-spiel
   [spiel]
