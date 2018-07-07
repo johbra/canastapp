@@ -53,14 +53,9 @@
        (teilnehmer-vorhanden? spiel)
        (> (anzahl-runden spiel) 0)))
 
-(defn standard-spiel
-  []
-  (assoc (->Spiel) :teilnehmer [(s/->Spieler "Meike") (s/->Spieler "Hannes")]))
-
 (defn neues-spiel 
-  []
-  (let [w (standard-spiel)]
-    w)) 
+  [sp-namen]
+  (assoc (->Spiel) :teilnehmer (map s/->Spieler sp-namen))) 
 
 (defn teilnehmer-namen
   [spiel]

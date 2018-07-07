@@ -12,7 +12,8 @@
                     :korrektur false
                     :historie {"x" 0 "y" 0} 
                     :log nil
-                    :gespeichertes-spiel? false}))
+                    :gespeichertes-spiel? false
+                    :spieler-namen []}))
 
 (defn keine-korrektur
   []
@@ -27,14 +28,14 @@
 ;; -------------------------
 ;; Events
 (defn neues-spiel [] 
-  (let [spiel (sp/neues-spiel)
+  (let [spiel (sp/neues-spiel (:spieler-namen @world))
         log (df/log-neues-spiel "logs.txt" world :log)] 
     (swap! world assoc
            :spiel spiel
            :korrektur false)))
 
 (defn begonnenes-spiel-verwerfen []  
-  (let [spiel (sp/neues-spiel)
+  (let [spiel (sp/neues-spiel (:spieler-namen @world))
         log (df/log-neues-spiel "logs.txt" world :log)] 
     (swap! world assoc
            :spiel spiel
@@ -246,6 +247,7 @@
 
 (defn mount-root []
   (df/lies-historie "hist.txt" world :historie)
+  (df/lies-historie "namen.txt" world :spieler-namen)
   (df/exists-file-named "welt.txt" world :gespeichertes-spiel?)
 
   (r/render [home-page] (.getElementById js/document "app")))

@@ -7,17 +7,17 @@ goog.require('cljs.core.async');
 goog.require('canastcljs.spiel');
 goog.require('canastcljs.menu');
 goog.require('canastcljs.drop_file_stream');
-canastcljs.core.world = reagent.core.atom.call(null,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"spiel","spiel",-831112206),canastcljs.spiel.__GT_Spiel.call(null),new cljs.core.Keyword(null,"korrektur","korrektur",588821201),false,new cljs.core.Keyword(null,"historie","historie",893875268),new cljs.core.PersistentArrayMap(null, 2, ["x",(0),"y",(0)], null),new cljs.core.Keyword(null,"log","log",-1595516004),null,new cljs.core.Keyword(null,"gespeichertes-spiel?","gespeichertes-spiel?",147195637),false], null));
+canastcljs.core.world = reagent.core.atom.call(null,new cljs.core.PersistentArrayMap(null, 6, [new cljs.core.Keyword(null,"spiel","spiel",-831112206),canastcljs.spiel.__GT_Spiel.call(null),new cljs.core.Keyword(null,"korrektur","korrektur",588821201),false,new cljs.core.Keyword(null,"historie","historie",893875268),new cljs.core.PersistentArrayMap(null, 2, ["x",(0),"y",(0)], null),new cljs.core.Keyword(null,"log","log",-1595516004),null,new cljs.core.Keyword(null,"gespeichertes-spiel?","gespeichertes-spiel?",147195637),false,new cljs.core.Keyword(null,"spieler-namen","spieler-namen",-1834217911),cljs.core.PersistentVector.EMPTY], null));
 canastcljs.core.keine_korrektur = (function canastcljs$core$keine_korrektur(){
 return cljs.core.swap_BANG_.call(null,canastcljs.core.world,cljs.core.assoc,new cljs.core.Keyword(null,"korrektur","korrektur",588821201),false);
 });
 canastcljs.core.neues_spiel = (function canastcljs$core$neues_spiel(){
-var spiel = canastcljs.spiel.neues_spiel.call(null);
+var spiel = canastcljs.spiel.neues_spiel.call(null,new cljs.core.Keyword(null,"spieler-namen","spieler-namen",-1834217911).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world)));
 var log = canastcljs.drop_file_stream.log_neues_spiel.call(null,"logs.txt",canastcljs.core.world,new cljs.core.Keyword(null,"log","log",-1595516004));
 return cljs.core.swap_BANG_.call(null,canastcljs.core.world,cljs.core.assoc,new cljs.core.Keyword(null,"spiel","spiel",-831112206),spiel,new cljs.core.Keyword(null,"korrektur","korrektur",588821201),false);
 });
 canastcljs.core.begonnenes_spiel_verwerfen = (function canastcljs$core$begonnenes_spiel_verwerfen(){
-var spiel = canastcljs.spiel.neues_spiel.call(null);
+var spiel = canastcljs.spiel.neues_spiel.call(null,new cljs.core.Keyword(null,"spieler-namen","spieler-namen",-1834217911).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world)));
 var log = canastcljs.drop_file_stream.log_neues_spiel.call(null,"logs.txt",canastcljs.core.world,new cljs.core.Keyword(null,"log","log",-1595516004));
 return cljs.core.swap_BANG_.call(null,canastcljs.core.world,cljs.core.assoc,new cljs.core.Keyword(null,"spiel","spiel",-831112206),spiel,new cljs.core.Keyword(null,"korrektur","korrektur",588821201),false);
 });
@@ -32,8 +32,8 @@ if(cljs.core.not.call(null,canastcljs.spiel.spiel_beendet_QMARK_.call(null,new c
 if(cljs.core.truth_(canastcljs.spiel.geber_festgelegt_QMARK_.call(null,new cljs.core.Keyword(null,"spiel","spiel",-831112206).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world))))){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.nebentab","div.nebentab",-1749851017),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.geber","div.geber",1255510733),[cljs.core.str.cljs$core$IFn$_invoke$arity$1(canastcljs.spiel.geber.call(null,new cljs.core.Keyword(null,"spiel","spiel",-831112206).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world))))," muss geben."].join('')], null)], null);
 } else {
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.nebentab","div.nebentab",-1749851017),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.geber","div.geber",1255510733),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__29837_SHARP_){
-return cljs.core.swap_BANG_.call(null,canastcljs.core.world,cljs.core.assoc_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"spiel","spiel",-831112206),new cljs.core.Keyword(null,"geber","geber",604746862)], null),p1__29837_SHARP_.target.value);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.nebentab","div.nebentab",-1749851017),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.geber","div.geber",1255510733),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__29943_SHARP_){
+return cljs.core.swap_BANG_.call(null,canastcljs.core.world,cljs.core.assoc_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"spiel","spiel",-831112206),new cljs.core.Keyword(null,"geber","geber",604746862)], null),p1__29943_SHARP_.target.value);
 }),new cljs.core.Keyword(null,"default-value","default-value",232220170),"noch festzulegen"], null),cljs.core.map.call(null,(function (tln){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),tln], null),tln], null);
 }),canastcljs.spiel.teilnehmer_namen.call(null,new cljs.core.Keyword(null,"spiel","spiel",-831112206).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world)))),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),"noch festzulegen"], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"label","label",1718410804)," muss geben."], null)], null)], null);
@@ -71,8 +71,8 @@ if(cljs.core.not.call(null,canastcljs.spiel.spiel_beendet_QMARK_.call(null,new c
 return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.rTableRow","div.rTableRow",605058685),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),(cljs.core.truth_(new cljs.core.Keyword(null,"korrektur","korrektur",588821201).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world)))?(canastcljs.spiel.runde.call(null,new cljs.core.Keyword(null,"spiel","spiel",-831112206).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world))) - (1)):canastcljs.spiel.runde.call(null,new cljs.core.Keyword(null,"spiel","spiel",-831112206).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world))))], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.rTableCell.small","div.rTableCell.small",56891530),(canastcljs.spiel.runde.call(null,new cljs.core.Keyword(null,"spiel","spiel",-831112206).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world))) + (1))], null),cljs.core.doall.call(null,cljs.core.map.call(null,((function (x){
 return (function (tln){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.rTableCell","div.rTableCell",1351110894),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),tln], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"default-value","default-value",232220170),(cljs.core.truth_(new cljs.core.Keyword(null,"korrektur","korrektur",588821201).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world)))?canastcljs.spiel.letztes_resultat.call(null,new cljs.core.Keyword(null,"spiel","spiel",-831112206).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world)),tln):""),new cljs.core.Keyword(null,"placeholder","placeholder",-104873083),(cljs.core.truth_(new cljs.core.Keyword(null,"korrektur","korrektur",588821201).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world)))?canastcljs.spiel.letztes_resultat.call(null,new cljs.core.Keyword(null,"spiel","spiel",-831112206).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,canastcljs.core.world)),tln):""),new cljs.core.Keyword(null,"type","type",1174270348),"number",new cljs.core.Keyword(null,"on-change","on-change",-732046149),((function (x){
-return (function (p1__29838_SHARP_){
-var val = cljs.reader.read_string.call(null,p1__29838_SHARP_.target.value);
+return (function (p1__29944_SHARP_){
+var val = cljs.reader.read_string.call(null,p1__29944_SHARP_.target.value);
 var res = cljs.core.swap_BANG_.call(null,canastcljs.core.resultate,cljs.core.assoc,tln,val);
 return null;
 });})(x))
@@ -163,6 +163,8 @@ return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMP
 canastcljs.core.mount_root = (function canastcljs$core$mount_root(){
 canastcljs.drop_file_stream.lies_historie.call(null,"hist.txt",canastcljs.core.world,new cljs.core.Keyword(null,"historie","historie",893875268));
 
+canastcljs.drop_file_stream.lies_historie.call(null,"namen.txt",canastcljs.core.world,new cljs.core.Keyword(null,"spieler-namen","spieler-namen",-1834217911));
+
 canastcljs.drop_file_stream.exists_file_named.call(null,"welt.txt",canastcljs.core.world,new cljs.core.Keyword(null,"gespeichertes-spiel?","gespeichertes-spiel?",147195637));
 
 return reagent.core.render.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [canastcljs.core.home_page], null),document.getElementById("app"));
@@ -171,4 +173,4 @@ canastcljs.core.init_BANG_ = (function canastcljs$core$init_BANG_(){
 return canastcljs.core.mount_root.call(null);
 });
 
-//# sourceMappingURL=core.js.map?rel=1530983552341
+//# sourceMappingURL=core.js.map?rel=1530990881232
