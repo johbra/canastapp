@@ -13,7 +13,8 @@
                     :historie {"x" 0 "y" 0} 
                     :log nil
                     :gespeichertes-spiel? false
-                    :spieler-namen []}))
+                    :spieler-namen []
+                    :spiel-typ nil}))
 
 (defn keine-korrektur
   []
@@ -116,16 +117,19 @@
                               (dec (sp/runde (:spiel @world)))
                               (sp/runde (:spiel @world)))}
        [:div.rTableCell.small (inc (sp/runde (:spiel @world)))]
-       (doall (map 
-               (fn [tln] [:div.rTableCell
-                          {:key tln}
-                          [:input {:default-value (if (:korrektur @world) (sp/letztes-resultat (:spiel @world) tln) "")
-                                   :placeholder (if (:korrektur @world) (sp/letztes-resultat (:spiel @world) tln) "")
-                                   :type "number" 
-                                   :on-change #(let [val (cljs.reader/read-string (-> % .-target .-value))
-                                                     res (swap! resultate assoc tln val )]
-                                                 )}]])
-               (sp/teilnehmer-namen (:spiel @world))))
+       (doall
+        (map 
+         (fn
+           [tln]
+           [:div.rTableCell
+            {:key tln}
+            [:input {:default-value (if (:korrektur @world) (sp/letztes-resultat (:spiel @world) tln) "")
+                     :placeholder (if (:korrektur @world) (sp/letztes-resultat (:spiel @world) tln) "")
+                     :type "number" 
+                     :on-change #(let [val (cljs.reader/read-string (-> % .-target .-value))
+                                       res (swap! resultate assoc tln val )]
+                                   )}]])
+         (sp/teilnehmer-namen (:spiel @world))))
        [:div.rTableCell.button
         [:button {:on-click #(let [spiel (if (:korrektur @world)
                                            (sp/korrigiere (:spiel @world) @resultate)
@@ -218,7 +222,7 @@
   []
   (if (sp/teilnehmer-vorhanden? (:spiel @world))
     [:div  
-     (gewonnene-spiele (:historie @world))
+     (when (= (:spiel-typ @world) "Canasta") (gewonnene-spiele (:historie @world)))
      [:div.rTable
       [:div.rTableHeading
        [:div.rTableRow
@@ -239,15 +243,16 @@
 (defn home-page []
   [:div
    (me/menu (menu))
-   [:h1 "Canasta"] 
+   [:h1 (:spiel-typ @world)] 
    (render-spielablauf)])
 
 ;; -------------------------
 ;; Initialize app
 
 (defn mount-root []
-  (df/lies-historie "hist.txt" world :historie)
-  (df/lies-historie "namen.txt" world :spieler-namen)
+  (df/lies-edn "hist.txt" world :historie)
+  (df/lies-edn "namen.txt" world :spieler-namen)
+  (df/lies-edn "spieltyp.txt" world :spiel-typ)
   (df/exists-file-named "welt.txt" world :gespeichertes-spiel?)
 
   (r/render [home-page] (.getElementById js/document "app")))

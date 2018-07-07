@@ -38,7 +38,7 @@
                                     ))] 
         (swap! w assoc ziel (:body response)))))
 
-(defn lies-historie
+(defn lies-edn
   [f-name w ziel]
   (go (let [pfad (str "{\"path\":\"/" f-name "\"}")
             response (<! (http/post "https://content.dropboxapi.com/2/files/download" 
