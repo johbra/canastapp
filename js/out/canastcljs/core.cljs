@@ -2,7 +2,7 @@
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [reagent.core :as r]
             [cljs-http.client :as http]
-            [cljs.core.async :as a :refer [<!]]
+            [cljs.core.async :as a :refer [<! >!]]
             [canastcljs.spiel :as sp]
             [canastcljs.menu :as me]
             [canastcljs.drop-file-stream :as df]))
@@ -222,8 +222,8 @@
       [:div.rTableHeading
        [:div.rTableRow
         [:div.rTableHead.small "Rde."]
-        [:div.rTableHead (first (sp/teilnehmer-namen (:spiel @world)))]
-        [:div.rTableHead (second (sp/teilnehmer-namen (:spiel @world)))]]]
+        (doall (map (fn [s]
+                      [:div.rTableHead {:key s} s]) (sp/teilnehmer-namen (:spiel @world))))]]
       (when (sp/geber-festgelegt? (:spiel @world)) (ergebnis-tabelle))]
      (geber-feststellung)]))
 

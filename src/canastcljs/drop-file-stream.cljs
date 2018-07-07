@@ -46,8 +46,7 @@
                                      :headers {"Authorization" "Bearer QfCCKhxI-HwAAAAAAAAGe4i9DNbnHKnffOh6gCeyFIKFvRqMbS7IW1JQzyb8XVNp"
                                                "Dropbox-API-Arg" pfad
                                                "Content-Type" "text/plain; charset=utf-8"}         
-                                     }
-                                    ))] 
+                                     }))] 
         (swap! w assoc ziel (cljs.reader/read-string (:body response))))))
 
 (defn lies-welt

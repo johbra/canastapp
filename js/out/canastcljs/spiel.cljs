@@ -56,15 +56,11 @@
 (defn standard-spiel
   []
   (assoc (->Spiel) :teilnehmer [(s/->Spieler "Meike") (s/->Spieler "Hannes")]))
-;; f := DropFileStream fileNamed: 'log.txt'.
-;; f nextPutAll: 'Neues Spiel '; nextPutAll: DateAndTime now printString; cr.
-;; DropFileStream write: f to: 'log.txt'. 
-
 
 (defn neues-spiel 
   []
   (let [w (standard-spiel)]
-    (println w) w)) 
+    w)) 
 
 (defn teilnehmer-namen
   [spiel]
