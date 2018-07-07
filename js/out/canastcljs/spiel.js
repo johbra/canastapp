@@ -28,8 +28,8 @@ canastcljs.spiel.teilnehmer_vorhanden_QMARK_ = (function canastcljs$spiel$teilne
 return !(cljs.core.empty_QMARK_.call(null,new cljs.core.Keyword(null,"teilnehmer","teilnehmer",-1866934245).cljs$core$IFn$_invoke$arity$1(spiel)));
 });
 canastcljs.spiel.spieler_mit_namen = (function canastcljs$spiel$spieler_mit_namen(name,spiel){
-return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__37614_SHARP_){
-return cljs.core._EQ_.call(null,name,new cljs.core.Keyword(null,"spieler-name","spieler-name",-1325659791).cljs$core$IFn$_invoke$arity$1(p1__37614_SHARP_));
+return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__29408_SHARP_){
+return cljs.core._EQ_.call(null,name,new cljs.core.Keyword(null,"spieler-name","spieler-name",-1325659791).cljs$core$IFn$_invoke$arity$1(p1__29408_SHARP_));
 }),new cljs.core.Keyword(null,"teilnehmer","teilnehmer",-1866934245).cljs$core$IFn$_invoke$arity$1(spiel)));
 });
 canastcljs.spiel.anzahl_runden = (function canastcljs$spiel$anzahl_runden(spiel){
@@ -67,27 +67,27 @@ canastcljs.spiel.restauriere_spiel = (function canastcljs$spiel$restauriere_spie
 return cljs.core.println.call(null,"restauriere-spiel");
 });
 canastcljs.spiel.registriere = (function canastcljs$spiel$registriere(spiel,resultate){
-var teiln = cljs.core.map.call(null,(function (p__37616){
-var vec__37617 = p__37616;
-var name = cljs.core.nth.call(null,vec__37617,(0),null);
-var res = cljs.core.nth.call(null,vec__37617,(1),null);
+var teiln = cljs.core.map.call(null,(function (p__29410){
+var vec__29411 = p__29410;
+var name = cljs.core.nth.call(null,vec__29411,(0),null);
+var res = cljs.core.nth.call(null,vec__29411,(1),null);
 return canastcljs.spieler.registriere.call(null,canastcljs.spiel.spieler_mit_namen.call(null,name,spiel),res);
 }),resultate);
 var runde = (new cljs.core.Keyword(null,"runde","runde",-1618531444).cljs$core$IFn$_invoke$arity$1(spiel) + (1));
 var sieger = cljs.core.last.call(null,cljs.core.sort_by.call(null,new cljs.core.Keyword(null,"summe","summe",-650249817),teiln));
 var geber = cljs.core.first.call(null,cljs.core.filter.call(null,((function (teiln,runde,sieger){
-return (function (p1__37615_SHARP_){
-return !(cljs.core._EQ_.call(null,p1__37615_SHARP_,new cljs.core.Keyword(null,"geber","geber",604746862).cljs$core$IFn$_invoke$arity$1(spiel)));
+return (function (p1__29409_SHARP_){
+return !(cljs.core._EQ_.call(null,p1__29409_SHARP_,new cljs.core.Keyword(null,"geber","geber",604746862).cljs$core$IFn$_invoke$arity$1(spiel)));
 });})(teiln,runde,sieger))
 ,canastcljs.spiel.teilnehmer_namen.call(null,spiel)));
 var s = cljs.core.assoc.call(null,spiel,new cljs.core.Keyword(null,"runde","runde",-1618531444),runde);
 return cljs.core.assoc.call(null,s,new cljs.core.Keyword(null,"teilnehmer","teilnehmer",-1866934245),teiln,new cljs.core.Keyword(null,"spiel-beendet?","spiel-beendet?",-1758455863),(new cljs.core.Keyword(null,"summe","summe",-650249817).cljs$core$IFn$_invoke$arity$1(sieger) >= (5000)),new cljs.core.Keyword(null,"sieger","sieger",-247971207),(((new cljs.core.Keyword(null,"summe","summe",-650249817).cljs$core$IFn$_invoke$arity$1(sieger) >= (5000)))?new cljs.core.Keyword(null,"spieler-name","spieler-name",-1325659791).cljs$core$IFn$_invoke$arity$1(sieger):null),new cljs.core.Keyword(null,"geber","geber",604746862),geber);
 });
 canastcljs.spiel.korrigiere = (function canastcljs$spiel$korrigiere(spiel,resultate){
-var teiln = cljs.core.map.call(null,(function (p__37620){
-var vec__37621 = p__37620;
-var name = cljs.core.nth.call(null,vec__37621,(0),null);
-var res = cljs.core.nth.call(null,vec__37621,(1),null);
+var teiln = cljs.core.map.call(null,(function (p__29414){
+var vec__29415 = p__29414;
+var name = cljs.core.nth.call(null,vec__29415,(0),null);
+var res = cljs.core.nth.call(null,vec__29415,(1),null);
 return canastcljs.spieler.korrigiere.call(null,canastcljs.spiel.spieler_mit_namen.call(null,name,spiel),res);
 }),resultate);
 var sieger = cljs.core.last.call(null,cljs.core.sort_by.call(null,new cljs.core.Keyword(null,"summe","summe",-650249817),teiln));
@@ -106,4 +106,4 @@ var s = canastcljs.spiel.spieler_mit_namen.call(null,tln,spiel);
 return cljs.core.last.call(null,new cljs.core.Keyword(null,"resultate","resultate",-649999987).cljs$core$IFn$_invoke$arity$1(s));
 });
 
-//# sourceMappingURL=spiel.js.map?rel=1530821722293
+//# sourceMappingURL=spiel.js.map?rel=1530972546169

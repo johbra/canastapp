@@ -125,7 +125,7 @@
                                                      res (swap! resultate assoc tln val )]
                                                  )}]])
                (sp/teilnehmer-namen (:spiel @world))))
-       [:div.rTableCell
+       [:div.rTableCell.button
         [:button {:on-click #(let [spiel (if (:korrektur @world)
                                            (sp/korrigiere (:spiel @world) @resultate)
                                            (sp/registriere (:spiel @world) @resultate))

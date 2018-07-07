@@ -31,11 +31,12 @@ h1 {float: left;}
 .rTableHeading, .rTableBody, .rTableFoot, .rTableRow{ clear: both; } 
 .rTableBody {height: 380px; overflow-y: scroll;}
 .rTableHead, .rTableFoot{  background-color: #DDD;   	font-weight: bold; } 
-.rTableCell, .rTableHead { border: 0px solid #999999;   	float: left;   	height: 22px;   	overflow: hidden;   	padding: 3px 1.8%;   	width: 18%; } 
+.rTableCell, .rTableHead { border: 0px solid #999999; float: left; height: 22px; overflow: hidden; padding: 3px 1.8%; width: 18%; } 
 .rTableCell, .rTableHead {text-align: right;}
 .rTableCell.rule { height: 7px;  }
 .rTableCell.small, .rTableHead.small{ width: 8% }
-.rTable:after {   	visibility: hidden;   	display: block;   	font-size: 0;   	content: " ";   	clear: both;   	height: 0; }
+.rTableCell.button {text-align: center; padding: initial;}
+.rTable:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 
 ul#menu{width:132px;margin:0px;padding:0px;}
 ul#menu li{width:132px;list-style:none;position:relative;float:left;border-top:1px solid #999999;border-bottom:1px solid #999999;margin-bottom:-1px;}
