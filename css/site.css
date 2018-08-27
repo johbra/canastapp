@@ -31,7 +31,7 @@ h1 {float: left;}
 .rTableHeading, .rTableBody, .rTableFoot, .rTableRow{ clear: both; } 
 .rTableBody {height: 380px; overflow-y: scroll;}
 .rTableHead, .rTableFoot{  background-color: #DDD;   	font-weight: bold; } 
-.rTableCell, .rTableHead {border: 0px solid #999999;float: left;height: 25px;overflow: hidden;/* padding: 3px 1.8%; */width: 18%;} 
+.rTableCell, .rTableHead {border: 0px solid #999999;float: left;height: 25px;overflow: hidden; padding-left: 3px ; width: 18%;} 
 .rTableCell, .rTableHead {text-align: right;}
 .rTableCell.rule {height: 10px;}
 .rTableCell.small, .rTableHead.small{ width: 8% }
