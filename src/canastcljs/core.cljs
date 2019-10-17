@@ -67,7 +67,7 @@
        [:div.geber
         [:select
          {:on-change #(swap! world assoc-in [:spiel :geber] (-> % .-target .-value))
-          :default-value "noch festzulegen"}
+          }
          (map (fn [tln] [:option {:key tln} tln]) (sp/teilnehmer-namen (:spiel @world)))
          [:option  "noch festzulegen"]
          ]

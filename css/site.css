@@ -27,11 +27,11 @@ h1 {float: left;}
 .gewinner { position: fixed; top: 30%; left: 30%;
             font-size: 24px; font-weight: bold }
 
-.rTable {clear: left; float: left; display: block;  width: 450px; }
+.rTable {clear: left; float: left; display: block;  width: 500px; }
 .rTableHeading, .rTableBody, .rTableFoot, .rTableRow{ clear: both; } 
 .rTableBody {height: 380px; overflow-y: scroll;}
 .rTableHead, .rTableFoot{  background-color: #DDD;   	font-weight: bold; } 
-.rTableCell, .rTableHead {border: 0px solid #999999;float: left;height: 25px;overflow: hidden; margin-left: 3px ; width: 18%;} 
+.rTableCell, .rTableHead {border: 0px solid #999999;float: left;height: 25px;overflow: hidden; margin-left: 3px ; width: 13%;} 
 .rTableCell, .rTableHead {text-align: right;}
 .rTableCell.rule {height: 10px;}
 .rTableCell.small, .rTableHead.small{ width: 8% }
